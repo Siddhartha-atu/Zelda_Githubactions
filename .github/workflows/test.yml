@@ -19,11 +19,7 @@ jobs:
         with:
           node-version: '16' # Use compatible Node.js version
 
-      - name: Clean npm cache and install dependencies
-        run: |
-          npm cache clean --force
-          rm -rf node_modules package-lock.json
-          npm install
+     
 
       - name: Install Jest globally (to ensure it can be found)
         run: npm install -g jest
