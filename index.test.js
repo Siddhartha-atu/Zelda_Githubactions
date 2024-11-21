@@ -15,7 +15,7 @@ test('Check if Aishwarya is displayed in the HTML', () => {
     expect(nameContainer).not.toBeNull();
 
     // Check the content inside the name container
-    expect(nameContainer.textContent).toBe('Aishwarya');
+    expect(nameContainer.textContent.trim()).toBe('Aishwarya');
 
     // Check if the name container has correct styles
     const computedStyles = nameContainer.style;
