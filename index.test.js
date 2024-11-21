@@ -4,7 +4,7 @@ const { JSDOM } = require('jsdom');
 
 test('Check if Aishwarya is displayed in the HTML', () => {
     // Load the HTML file
-    const html = fs.readFileSync(path.resolve(__dirname, 'index.html'), 'utf8');
+    const html = fs.readFileSync(path.resolve(__dirname, 'Myname Assignment.html'), 'utf8');
     const dom = new JSDOM(html);
 
     // Get the document from the DOM
