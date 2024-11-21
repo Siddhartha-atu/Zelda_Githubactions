@@ -26,10 +26,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Step 4: List installed npm packages (for debugging)
+      # Step 4: Fix permissions for Jest binary
+      - name: Fix permissions for Jest
+        run: chmod +x ./node_modules/.bin/jest
+
+      # Step 5: List installed npm packages (for debugging)
       - name: List installed npm packages
         run: npm list --depth=0
 
-      # Step 5: Run tests using Jest
+      # Step 6: Run tests using Jest
       - name: Run tests
         run: npx jest
