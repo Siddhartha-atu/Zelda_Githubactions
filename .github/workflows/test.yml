@@ -22,22 +22,17 @@ jobs:
         with:
           node-version: '16'
 
-      - name: Clean npm cache
-        run: npm cache clean --force
-             rm -rf node_modules package-lock.json
-             npm install
+      # Step 3: Clean npm cache and remove old dependencies
+      - name: Clean npm cache and reinstall dependencies
+        run: |
+          npm cache clean --force
+          rm -rf node_modules package-lock.json
+          npm install
 
-      - name: Install dependencies
-        run: npm install
-
-      # Step 4: Fix permissions for Jest binary
-      - name: Fix permissions for Jest
-        run: chmod +x ./node_modules/.bin/jest
-
-      # Step 5: List installed npm packages (for debugging)
+      # Step 4: List installed npm packages (for debugging)
       - name: List installed npm packages
         run: npm list --depth=0
 
-      # Step 6: Run tests using Jest
+      # Step 5: Run tests using Jest (npx will find Jest installed in node_modules)
       - name: Run tests
         run: npx jest
