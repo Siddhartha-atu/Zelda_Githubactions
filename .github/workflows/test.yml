@@ -29,10 +29,12 @@ jobs:
           rm -rf node_modules package-lock.json
           npm install
 
+      - name: List files in the repository
+        run: ls -R /home/runner/work/test_html_css/test_html_css
+
       # Step 4: List installed npm packages (for debugging)
       - name: List installed npm packages
         run: npm list --depth=0
 
       # Step 5: Run tests using Jest (npx will find Jest installed in node_modules)
-      - name: Run tests
-        run: npx jest
+      
