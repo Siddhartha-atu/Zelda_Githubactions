@@ -1,17 +1,15 @@
 {
-  "name": "test_html_css",
+  "name": "html_css",
   "version": "1.0.0",
-  "description": "",
+  "description": "Test HTML and CSS with Jest",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@testing-library/dom": "^10.4.0",
-    "@testing-library/jest-dom": "^6.6.3",
-    "jest": "^29.7.0"
+    "jest": "^29.0.0",
+    "jsdom": "^25.0.1"
   }
 }
