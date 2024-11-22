@@ -1,4 +1,4 @@
-name: Test HTML Page
+name: Test dynamic HTML Page
 
 on:
   push:
