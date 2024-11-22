@@ -1,6 +1,6 @@
 const { JSDOM } = require('jsdom');
 
-describe('Sidd_L00187620.html contains required keywords', () => {
+describe('To check zelda zelda contains all three update', () => {
     const html = `
         <html>
         <body>
@@ -13,19 +13,19 @@ describe('Sidd_L00187620.html contains required keywords', () => {
     const dom = new JSDOM(html);
     const document = dom.window.document;
 
-    test('contains the keyword "Halloween Costumes"', () => {
+    test('contains the update related to "Halloween Costumes"', () => {
         const keyword = "Halloween Costumes";
         const keywordExists = document.body.textContent.includes(keyword);
         expect(keywordExists).toBe(true);
     });
 
-    test('contains the keyword "Camping Quests"', () => {
+    test('contains the update related to  "Camping Quests"', () => {
         const keyword = "Camping Quests";
         const keywordExists = document.body.textContent.includes(keyword);
         expect(keywordExists).toBe(true);
     });
 
-    test('contains the keyword "Windmill Quests"', () => {
+    test('contains the update related to  "Windmill Quests"', () => {
         const keyword = "Windmill Quests";
         const keywordExists = document.body.textContent.includes(keyword);
         expect(keywordExists).toBe(true);
