@@ -1,21 +1,33 @@
-const fs = require('fs');
-const path = require('path');
 const { JSDOM } = require('jsdom');
 
-test('Check if Sidd_L00187620.html has updated features Halloween Costumes", "Camping Quests", "Windmill Quests', () => {
-    // Load the HTML file
-    const html = fs.readFileSync(path.resolve(__dirname, 'Sidd_L00187620.html'), 'utf8');
+describe('Sidd_L00187620.html contains required keywords', () => {
+    const html = `
+        <html>
+        <body>
+            <p>Halloween Costumes</p>
+            <p>Camping Quests</p>
+            <p>Windmill Quests</p>
+        </body>
+        </html>
+    `;
     const dom = new JSDOM(html);
-
-    // Get the document from the DOM
     const document = dom.window.document;
 
-    // Keywords to check
-    const keywords = ["Halloween Costumes", "Camping Quests", "Windmill Quests"];
-
-    // Loop through keywords and check if they exist in the document
-    keywords.forEach(keyword => {
+    test('contains the keyword "Halloween Costumes"', () => {
+        const keyword = "Halloween Costumes";
         const keywordExists = document.body.textContent.includes(keyword);
-        expect(keywordExists).toBe(true); // Test passes if the keyword is found
+        expect(keywordExists).toBe(true);
+    });
+
+    test('contains the keyword "Camping Quests"', () => {
+        const keyword = "Camping Quests";
+        const keywordExists = document.body.textContent.includes(keyword);
+        expect(keywordExists).toBe(true);
+    });
+
+    test('contains the keyword "Windmill Quests"', () => {
+        const keyword = "Windmill Quests";
+        const keywordExists = document.body.textContent.includes(keyword);
+        expect(keywordExists).toBe(true);
     });
 });
