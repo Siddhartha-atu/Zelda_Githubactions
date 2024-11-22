@@ -3,7 +3,7 @@ name: Test HTML Page
 on:
   push:
     branches:
-      - main
+      - test_html
   pull_request:
 
 jobs:
