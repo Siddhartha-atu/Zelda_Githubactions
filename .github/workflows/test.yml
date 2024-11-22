@@ -3,6 +3,10 @@ name: Test HTML Page
 on:
   push:
     branches:
+<<<<<<< HEAD
+=======
+      - main
+>>>>>>> 73db5c5537f4530943bff04030a3eb4a575f6693
       - test_html
   pull_request:
 
@@ -11,24 +15,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      # Step 2: Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16' # Use compatible Node.js version
+          node-version: '16'
 
-     
-
-      - name: Install Jest globally (to ensure it can be found)
-        run: npm install -g jest
-
-      - name: Fix Jest permissions
-        run: chmod +x ./node_modules/.bin/jest
-
+      # Step 3: Clean npm cache and remove old dependencies
+      - name: Clean npm cache and reinstall dependencies
+        run: |
+          npm cache clean --force
+          rm -rf node_modules package-lock.json
+          npm install
+      # Step 4: List installed npm packages (for debugging)
       - name: List installed npm packages
         run: npm list --depth=0
 
+      # Step 5: Run tests using Jest (npx will find Jest installed in node_modules)
       - name: Run tests
-        run: npm test
+        run: npx jest
