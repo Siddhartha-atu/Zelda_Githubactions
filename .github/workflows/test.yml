@@ -3,10 +3,7 @@ name: Test HTML Page
 on:
   push:
     branches:
-<<<<<<< HEAD
-=======
       - main
->>>>>>> 73db5c5537f4530943bff04030a3eb4a575f6693
       - test_html
   pull_request:
 
