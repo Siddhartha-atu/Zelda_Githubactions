@@ -1,0 +1,35 @@
+name: Test HTML Page
+
+on:
+  push:
+    branches:
+      - test_html
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Step 2: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      # Step 3: Clean npm cache and reinstall dependencies
+      - name: Clean npm cache and reinstall dependencies
+        run: |
+          npm cache clean --force
+          rm -rf node_modules package-lock.json
+          npm install
+
+      # Step 4: Run tests using Jest with dynamic keywords
+      - name: Run tests with KEYWORDS
+        env:
+          KEYWORDS: "Halloween Costumes" # Replace with desired keyword or set dynamically
+        run: npx jest dynamicTest.spec.js
