@@ -32,4 +32,6 @@ jobs:
       - name: Run tests with KEYWORDS
         env:
           KEYWORDS: "Halloween Costumes" # Replace with desired keyword or set dynamically
-        run: npx jest dynamicTest.spec.js
+        run: npx jest dynamicTest.spec.js 
+
+
