@@ -1,6 +1,6 @@
 const { JSDOM } = require('jsdom');
 
-describe('To check zelda zelda contains all three update', () => {
+describe('To check zelda contains all three update', () => {
     const html = `
         <html>
         <body>
